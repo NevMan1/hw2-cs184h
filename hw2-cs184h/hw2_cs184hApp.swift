@@ -5,13 +5,18 @@
 //  Created by Nevin Manimaran on 10/22/24.
 //
 
-import SwiftUI
 
+import SwiftUI
+import Firebase
 @main
 struct hw2_cs184hApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(viewModel)
         }
     }
 }
